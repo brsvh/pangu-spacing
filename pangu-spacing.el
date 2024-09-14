@@ -129,6 +129,8 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'rx))
+
 (defgroup pangu-spacing nil
   "Add space between Chinese and English characters automatically."
   :group 'convenience
@@ -218,7 +220,7 @@ pangu-spacing-mode."
   "Helper macro to search and update overlay according func and regexp for
 pangu-sapce-mode."
   `(pangu-spacing-search-buffer ,regexp ,beg ,end
-                                  (,func (match-beginning 1) (match-end 1))))
+                                (,func (match-beginning 1) (match-end 1))))
 
 (defun pangu-spacing-org-mode-at-special-region ()
   (interactive)
